@@ -25,12 +25,11 @@ phases:
       - echo Writing image definitions file...
       - printf '[{"name":"testcontainer","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 
-
 artifacts:
-  files:
-    - imagedefinitions.json
-    - taskdef.json 
-    - appspec.yml
-  discard-paths: yes
+ files:
+  - imagedefinitions.json
+  - taskdef.json 
+  - appspec.yml
+ discard-paths: yes
 
 
