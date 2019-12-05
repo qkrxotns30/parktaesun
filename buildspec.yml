@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 7
+      nodejs: 10
       docker: 18
   pre_build:
     commands:
@@ -22,3 +22,15 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push gstalktset:latest 723910361729.dkr.ecr.ap-northeast-2.amazonaws.com/gstalktset:latest
+      - echo Writing image definitions file...
+      - printf '[{"name":"testcontainer","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+
+
+  artifacts:
+     files:
+      - imagedefinitions.json
+      - taskdef.json
+      - appspec.yml
+     discard-paths: yes
+
+
