@@ -2,9 +2,9 @@ version: 0.0
 
 Resources:
  - TargetService:
-Type: AWS::ECS::Service
-Properties:
- TaskDefinition: "arn:aws:ecs:ap-northeast-2:723910361729:task-definition/testtaskdefine"
-LoadBalancerInfo:
- ContainerName: "testcontainer"
- ContainerPort: 80
+     Type: AWS::ECS::Service
+     Properties:
+       TaskDefinition: "arn:aws:ecs:ap-northeast-2:723910361729:task-definition/testtaskdefine"
+       LoadBalancerInfo:
+          ContainerName: "testcontainer"
+          ContainerPort: 80
